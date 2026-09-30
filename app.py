@@ -18,8 +18,9 @@ uploaded_image = st.file_uploader("Upload Image Template", type=["png", "jpg", "
 
 def get_system_font(font_size=20):
     font_paths = [
-        r"C:\Windows\Fonts\times.ttf",
-        
+        "times.ttf",
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+        "/usr/share/fonts/truetype/liberation/LiberationSerif-Regular.ttf",
     ]
     for path in font_paths:
         if os.path.exists(path):
@@ -27,6 +28,7 @@ def get_system_font(font_size=20):
                 return ImageFont.truetype(path, size=font_size)
             except Exception:
                 continue
+    
     return ImageFont.load_default()
 
 
